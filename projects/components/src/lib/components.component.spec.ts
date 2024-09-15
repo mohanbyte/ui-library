@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WidthSelectorComponent } from './width-selector.component';
+import { ComponentsComponent } from './components.component';
 
-describe('WidthSelectorComponent', () => {
-  let component: WidthSelectorComponent;
-  let fixture: ComponentFixture<WidthSelectorComponent>;
+describe('ComponentsComponent', () => {
+  let component: ComponentsComponent;
+  let fixture: ComponentFixture<ComponentsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WidthSelectorComponent ]
+      declarations: [ ComponentsComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(WidthSelectorComponent);
+    fixture = TestBed.createComponent(ComponentsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

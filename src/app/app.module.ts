@@ -3,7 +3,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
-import { WidthSelectorComponent } from './width-selector/width-selector.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
@@ -12,10 +11,10 @@ import {
   BrowserAnimationsModule,
   provideAnimations,
 } from '@angular/platform-browser/animations';
+import { WidthSelectorComponent } from 'projects/components/src/lib/width-selector/width-selector.component';
 @NgModule({
   declarations: [
     // other components
-    WidthSelectorComponent,
     AppComponent,
   ],
   imports: [
@@ -27,6 +26,7 @@ import {
     MatButtonModule,
     FormsModule,
     AppRoutingModule,
+    WidthSelectorComponent,
   ],
 
   bootstrap: [AppComponent],

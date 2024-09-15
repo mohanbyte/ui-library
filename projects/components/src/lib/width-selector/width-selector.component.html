@@ -1,2 +1,13 @@
-<h1>{{placeholder}}</h1>
-<input [type]="text" [placeholder]="placeholder">
+<mat-form-field appearance="outline">
+    <mat-label>{{placeholder}}</mat-label>
+    <div class="input-group">
+        <button mat-icon-button color="primary" (click)="decreaseWidth()">
+            <mat-icon>{{firstIcon}}</mat-icon>
+        </button>
+        <input matInput [type]="type" [(ngModel)]="width" readonly />
+        <button mat-icon-button color="primary" (click)="increaseWidth()">
+            <mat-icon>{{secondIcon}}</mat-icon>
+        </button>
+    </div>
+    <mat-hint>Values in px</mat-hint>
+</mat-form-field>
