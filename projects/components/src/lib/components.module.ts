@@ -4,7 +4,7 @@ import { WidthSelectorComponent } from './width-selector/width-selector.componen
 
 @NgModule({
   declarations: [ComponentsComponent],
-
+  imports: [WidthSelectorComponent],
   exports: [ComponentsComponent],
 })
 export class ComponentsModule {}

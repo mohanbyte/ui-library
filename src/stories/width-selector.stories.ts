@@ -25,14 +25,16 @@ type Story = StoryObj<WidthSelectorComponent>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Primary: Story = {
   args: {
-    type: 'text',
-    placeholder: 'primary',
+    type: 'number',
+    placeholder: 'Width',
   },
 };
 
 export const Secondary: Story = {
   args: {
     type: 'number',
-    placeholder: 'accent',
+    placeholder: 'Accent',
+    firstIcon: 'delete',
+    secondIcon: 'check',
   },
 };
