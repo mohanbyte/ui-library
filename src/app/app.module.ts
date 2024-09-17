@@ -7,7 +7,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { WidthSelectorComponent } from 'faclon-ui/src/lib/width-selector/width-selector.component';
+import { ComponentsModule } from 'faclon-ui';
 @NgModule({
   declarations: [
     // other components
@@ -22,7 +22,7 @@ import { WidthSelectorComponent } from 'faclon-ui/src/lib/width-selector/width-s
     MatButtonModule,
     FormsModule,
     AppRoutingModule,
-    WidthSelectorComponent,
+    ComponentsModule,
   ],
 
   bootstrap: [AppComponent],
