@@ -7,7 +7,8 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ComponentsModule } from 'faclon-ui';
+import { WidthSelectorComponent } from 'faclon-ui';
+import { PresetDateTimePickerComponent } from 'projects/components/src/public-api';
 @NgModule({
   declarations: [
     // other components
@@ -22,7 +23,8 @@ import { ComponentsModule } from 'faclon-ui';
     MatButtonModule,
     FormsModule,
     AppRoutingModule,
-    ComponentsModule,
+    WidthSelectorComponent,
+    PresetDateTimePickerComponent,
   ],
 
   bootstrap: [AppComponent],

@@ -1,0 +1,88 @@
+<div class="time-inner-container">
+    <div class="duration-container cursor-pointer" (click)="changeCalendarToggle()">
+        <div class="duration-label">Duration : </div>
+        <button mat-raised-button color="primary" class="p-0 px-2">
+            {{activeIndex == -1 ? 'Custom' : allDurations[activeIndex]?.name}}
+        </button>
+        <div class="duration-current" *ngIf="showDurationLabels">{{(currentStartTime *
+            1000) |
+            date:"MMMM YYYY" }} -
+            {{(currentEndTime *
+            1000) | date:"medium" }}</div>
+        <i class="duration-calendar-icon material-symbols-outlined"
+            matTooltip="{{showCalendar ? 'Close':'Open' }} Calendar">event</i>
+    </div>
+    <div class="periodicity-container" *ngIf="type == 'date-time-period'">
+        <div class="duration-label">Periodicity : </div>
+        <div class="duration-current d-flex cursor-pointer" #menuOption="matMenuTrigger"
+            [matMenuTriggerFor]="allPeriods && allPeriods.length > 1 ? menu : null">
+            {{activePeriod}}
+            <i class="material-symbols-outlined ml-1" *ngIf="allPeriods && allPeriods.length > 1">{{menuOption.menuOpen
+                ?
+                'keyboard_arrow_up' :
+                'keyboard_arrow_down'}}</i>
+        </div>
+        <mat-menu #menu="matMenu" class="custom-gtp-menu">
+            <div class="cursor-pointer" mat-menu-item *ngFor="let period of allPeriods;"
+                (click)="setCurrentPeriod(period)">
+                {{period}}</div>
+        </mat-menu>
+    </div>
+    <!-- Showing Calendar Based on Condition-->
+    <div class="time-calendar-container" *ngIf="showCalendar">
+        <div class="time-calendar-body">
+            <div class="time-left-side">
+                <div class="time-duration cursor-pointer" (click)="setActiveIndex(-1)"
+                    [ngClass]="{'active-label':currentIndex == -1}">
+                    Custom
+                </div>
+                <div [ngClass]="{'active-label':currentIndex == ind}" class="time-duration cursor-pointer"
+                    *ngFor="let duration of allDurations; let ind = index" (click)="setActiveIndex(ind)">
+                    {{duration?.name}}</div>
+            </div>
+            <div class="time-right-side">
+                <div class="top-container">
+                    <form [formGroup]="timeConfigForm">
+                        <div class="row">
+                            <div [ngClass]="{'col-12' : type == 'date','col-6' : type == 'date-time'}">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Start Date</mat-label>
+                                    <input matInput type="text" formControlName="startDate" placeholder="DD/MM/YYYY">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-6" *ngIf="type == 'date-time'">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Start Time</mat-label>
+                                    <input matInput formControlName="startTime" type="text" placeholder="HH:MM">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-6" [ngClass]="{'col-12' : type == 'date','col-6' : type == 'date-time'}">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>End Date</mat-label>
+                                    <input matInput type="text" formControlName="endDate" placeholder="DD/MM/YYYY">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-6" *ngIf="type == 'date-time'">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>End Time</mat-label>
+                                    <input matInput formControlName="endTime" type="text" placeholder="HH:MM">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="bottom-calender-container">
+                    <!-- Calendar Here First Part -->
+                    <mat-calendar [selected]="selectedDate" [maxDate]="maximumDate"
+                        (selectedChange)="onSelectedChange($event)"></mat-calendar>
+                    <mat-date-range-picker #picker></mat-date-range-picker>
+                </div>
+            </div>
+        </div>
+        <div class="time-bottom-side">
+            <button mat-stroked-button color="primary" (click)="changeCalendarToggle()">Cancel</button>
+            <button mat-raised-button color="primary" class="ml-2" [disabled]="timeConfigForm.invalid"
+                (click)="applyTime()">Apply</button>
+        </div>
+    </div>
+</div>
