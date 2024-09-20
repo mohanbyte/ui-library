@@ -16,13 +16,10 @@ import {
   UntypedFormGroup,
   Validators,
 } from '@angular/forms';
-import {
-  DateRange,
-  MatCalendar,
-  MatDatepickerModule,
-} from '@angular/material/datepicker';
+import { DateRange, MatDatepickerModule } from '@angular/material/datepicker';
 import { IOLensWidgetsService } from './iolens-widgets.service';
-import * as moment from 'moment';
+import * as moment_ from 'moment';
+const moment = moment_;
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatLegacyMenuModule as MatMenuModule } from '@angular/material/legacy-menu';
 
@@ -186,8 +183,8 @@ export class PresetDateTimePickerComponent implements OnInit {
   allPeriods: any = [];
   maximumDate: Date;
   selectedDate: any;
-  startDate: any = moment().subtract(7, 'days').startOf('day');
-  endDate: any = moment().startOf('day');
+  startDate: any = moment_().subtract(7, 'days').startOf('day');
+  endDate: any = moment_().startOf('day');
 
   @Input() type: 'date' | 'date-time-period' | 'date-time' = 'date';
   @Input() defaultDuration: string = 'Last 30 Days';
@@ -277,8 +274,8 @@ export class PresetDateTimePickerComponent implements OnInit {
     this.currentIndex = this.activeIndex;
     if (this.emitInitially) this.fetchTime();
     else {
-      const startTime = moment().startOf('day');
-      const endTime = moment();
+      const startTime = moment_().startOf('day');
+      const endTime = moment_();
       this.currentStartTime = startTime.unix();
       this.currentEndTime = endTime.unix();
       this.timeConfigForm.patchValue({
@@ -308,8 +305,8 @@ export class PresetDateTimePickerComponent implements OnInit {
     this.timeConfigForm.valueChanges.subscribe((resp) => {
       if (this.timeConfigForm.valid && !this.init) {
         this.currentIndex = -1;
-        const startDate = moment(resp.startDate, 'DD/MM/YYYY').toDate();
-        const endDate = moment(resp.endDate, 'DD/MM/YYYY').toDate();
+        const startDate = moment_(resp.startDate, 'DD/MM/YYYY').toDate();
+        const endDate = moment_(resp.endDate, 'DD/MM/YYYY').toDate();
         this.selectedDate = new DateRange(startDate, endDate);
       }
       this.init = false;
@@ -320,11 +317,11 @@ export class PresetDateTimePickerComponent implements OnInit {
     var { startTime, endTime, startDate, endDate } = this.timeConfigForm.value;
     const [startHr, startMin] = startTime.split(':');
     const [endHr, endMin] = endTime.split(':');
-    this.currentEndTime = moment(endDate, 'DD/MM/YYYY')
+    this.currentEndTime = moment_(endDate, 'DD/MM/YYYY')
       .add(+endHr, 'hour')
       .add(+endMin, 'minute')
       .unix();
-    this.currentStartTime = moment(startDate, 'DD/MM/YYYY')
+    this.currentStartTime = moment_(startDate, 'DD/MM/YYYY')
       .add(+startHr, 'hour')
       .add(+startMin, 'minute')
       .unix();
@@ -353,17 +350,17 @@ export class PresetDateTimePickerComponent implements OnInit {
     const { startTime, endTime } = timeOb;
     this.currentEndTime = endTime;
     this.currentStartTime = startTime;
-    const startDateMoment = moment(startTime * 1000);
-    const endDateMoment = moment(endTime * 1000);
+    const startDatemoment_ = moment_(startTime * 1000);
+    const endDatemoment_ = moment_(endTime * 1000);
     this.timeConfigForm.patchValue({
-      startDate: startDateMoment.format('DD/MM/YYYY'),
-      endDate: endDateMoment.format('DD/MM/YYYY'),
-      startTime: startDateMoment.format('HH:mm'),
-      endTime: endDateMoment.format('HH:mm'),
+      startDate: startDatemoment_.format('DD/MM/YYYY'),
+      endDate: endDatemoment_.format('DD/MM/YYYY'),
+      startTime: startDatemoment_.format('HH:mm'),
+      endTime: endDatemoment_.format('HH:mm'),
     });
     this.selectedDate = new DateRange(
-      startDateMoment.toDate(),
-      endDateMoment.toDate()
+      startDatemoment_.toDate(),
+      endDatemoment_.toDate()
     );
     this.emitTime();
   }
@@ -395,12 +392,12 @@ export class PresetDateTimePickerComponent implements OnInit {
 
     // Handle the case where selectedDate is null or undefined
     const selectedStart = this.selectedDate?.start
-      ? moment(this.selectedDate.start)
+      ? moment_(this.selectedDate.start)
       : null;
     const selectedEnd = this.selectedDate?.end
-      ? moment(this.selectedDate.end)
+      ? moment_(this.selectedDate.end)
       : null;
-    const newDate = moment(date).startOf('day');
+    const newDate = moment_(date).startOf('day');
 
     if (selectedStart && selectedEnd) {
       // Both start and end dates are selected, set new date as the start date
@@ -420,7 +417,7 @@ export class PresetDateTimePickerComponent implements OnInit {
             .add(startHr, 'hour')
             .add(startMin, 'minutes')
         : newDate.add(startHr, 'hour').add(startMin, 'minutes');
-      var endDate: any = moment(date)
+      var endDate: any = moment_(date)
         .startOf('day')
         .add(endHr, 'hour')
         .add(endMin, 'minutes');
