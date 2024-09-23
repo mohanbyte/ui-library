@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WidthSelectorComponent } from 'faclon-ui';
 import { PresetDateTimePickerComponent } from 'projects/components/src/public-api';
+import { IoFormFieldComponent } from 'projects/components/src/lib/io-form-field/io-form-field.component';
 @NgModule({
   declarations: [
     // other components
@@ -25,6 +26,7 @@ import { PresetDateTimePickerComponent } from 'projects/components/src/public-ap
     AppRoutingModule,
     WidthSelectorComponent,
     PresetDateTimePickerComponent,
+    IoFormFieldComponent,
   ],
 
   bootstrap: [AppComponent],

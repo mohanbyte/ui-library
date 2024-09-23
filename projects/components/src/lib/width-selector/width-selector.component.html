@@ -1,11 +1,11 @@
 <mat-form-field appearance="outline">
     <mat-label>{{placeholder}}</mat-label>
     <button mat-icon-button color="primary" matSuffix (click)="decreaseWidth()">
-        <mat-icon>{{firstIcon}}</mat-icon>
+        <mat-icon>{{prefixIcon}}</mat-icon>
     </button>
     <input matInput [type]="type" [(ngModel)]="width" readonly />
     <button mat-icon-button color="primary" matSuffix (click)="increaseWidth()">
-        <mat-icon>{{secondIcon}}</mat-icon>
+        <mat-icon>{{suffixIcon}}</mat-icon>
     </button>
     <mat-hint>Values in px</mat-hint>
 </mat-form-field>

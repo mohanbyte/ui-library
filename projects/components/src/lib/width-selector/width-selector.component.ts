@@ -24,8 +24,8 @@ export class WidthSelectorComponent {
   width: number = 400;
   @Input() type = 'text';
   @Input() placeholder = 'Input Field';
-  @Input() secondIcon = 'add';
-  @Input() firstIcon = 'remove';
+  @Input() prefixIcon = 'add';
+  @Input() suffixIcon = 'remove';
   increaseWidth() {
     this.width += 10;
   }
