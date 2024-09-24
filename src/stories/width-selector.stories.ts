@@ -4,7 +4,7 @@ import { WidthSelectorComponent } from '../../projects/components/src/lib/width-
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta: Meta<WidthSelectorComponent> = {
-  title: 'Example/WidthSelector',
+  title: 'Form Field/WidthSelector',
   component: WidthSelectorComponent,
   tags: ['autodocs'],
   render: (args: WidthSelectorComponent) => ({
@@ -23,18 +23,18 @@ export default meta;
 type Story = StoryObj<WidthSelectorComponent>;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Primary: Story = {
+export const Default: Story = {
   args: {
-    type: 'number',
-    placeholder: 'Width',
+    placeholder: 'Primary',
+    prefixIcon: 'lock',
+    suffixIcon: 'visibility',
+    type: 'text',
   },
 };
 
-export const Secondary: Story = {
+export const Custom: Story = {
   args: {
-    type: 'number',
-    placeholder: 'Accent',
-    firstIcon: 'delete',
-    secondIcon: 'check',
+    ...Default.args,
+    suffixIcon: 'check',
   },
 };
