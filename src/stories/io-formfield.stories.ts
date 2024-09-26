@@ -6,7 +6,6 @@ const meta: Meta<IoFormFieldComponent> = {
   title: 'COMPONENTS/Input Field',
 
   component: IoFormFieldComponent,
-  tags: ['autodocs'],
   render: (args: IoFormFieldComponent) => ({
     props: {
       ...args,
@@ -15,6 +14,7 @@ const meta: Meta<IoFormFieldComponent> = {
 
   argTypes: {
     label: {
+      name: 'Label',
       control: 'text',
     },
     showLabel: {
@@ -62,6 +62,7 @@ export const withSuffix: Story = {
     ...Default.args,
     suffixIcon: 'clear',
   },
+  name: 'Default',
 };
 export const bothIcons: Story = {
   args: {
