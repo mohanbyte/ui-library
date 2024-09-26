@@ -23,24 +23,32 @@ export default meta;
 type Story = StoryObj<IoFormFieldComponent>;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Primary: Story = {
+export const Default: Story = {
   args: {
-    label: 'This is a Label',
-    type: 'text',
+    label: 'Label',
   },
 };
-export const Filled: Story = {
+export const withPrefix: Story = {
   args: {
-    appearance: 'fill',
-    label: 'This is a Label',
-    type: 'text',
+    ...Default.args,
+    prefixIcon: 'lock',
   },
 };
-export const WithIcon: Story = {
+export const withSuffix: Story = {
   args: {
-    prefixIcon: 'add',
+    ...Default.args,
     suffixIcon: 'clear',
-    label: 'With Suffix and Prefix',
-    type: 'text',
+  },
+};
+export const bothIcons: Story = {
+  args: {
+    ...withPrefix.args,
+    ...withSuffix.args,
+  },
+};
+export const textarea: Story = {
+  args: {
+    ...Default.args,
+    type: 'textarea',
   },
 };

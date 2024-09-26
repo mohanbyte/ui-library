@@ -20,7 +20,7 @@ import { MatInputModule } from '@angular/material/input';
 })
 export class IoFormFieldComponent {
   @Input() appearance: 'outline' | 'fill' = 'outline';
-  @Input() type: 'number' | 'text' | 'date' | 'password' = 'text';
+  @Input() type: 'number' | 'text' | 'date' | 'password' | 'textarea' = 'text';
   @Input() label: string = '';
   @Input() suffixIcon: string = '';
   @Input() prefixIcon: string = '';
