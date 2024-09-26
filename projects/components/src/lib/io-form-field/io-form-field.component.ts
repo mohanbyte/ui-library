@@ -24,4 +24,11 @@ export class IoFormFieldComponent {
   @Input() label: string = '';
   @Input() suffixIcon: string = '';
   @Input() prefixIcon: string = '';
+  @Input() hint: string = '';
+  @Input() showHint: boolean = true;
+  @Input() showLabel: boolean = true;
+  @Input() showCounter: boolean = false;
+  @Input() counterLimit: boolean = false;
+  @Input() errorText: string = this.label + ' is a required';
+  @Input() requiredField: boolean = false;
 }
