@@ -16,3 +16,6 @@ jobs:
       with:
         path: dist/storybook-static
         build_command: npm run build-storybook
+permissions:
+  id-token: write
+  pages: write
