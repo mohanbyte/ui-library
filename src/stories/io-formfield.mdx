@@ -1,8 +1,8 @@
-import { Meta, Story, Canvas } from "@storybook/addon-docs";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/blocks";
 
 import * as InputFieldStories from "./io-formfield.stories.ts";
 
-<Meta title="COMPONENTS/Input Field" />
+<Meta title="COMPONENTS/Input Field" of={InputFieldStories} />
 
 # TEXT INPUT
 
@@ -12,4 +12,26 @@ A text input field is a user interface element that allows individuals to enter 
 
 This is the default TextInput. You can change the properties using the controls below.
 
-<Canvas of={InputFieldStories.Default} />
+### Default Input Field
+
+<Canvas>
+  <Story>{InputFieldStories.Default}</Story>
+</Canvas>
+
+### Input Field with Label
+
+<Canvas of={InputFieldStories.withLabel}>
+  <Story>{InputFieldStories.withLabel}</Story>
+</Canvas>
+
+### Input Field with Placeholder
+
+<Canvas>
+  <Story>{InputFieldStories.withPlaceholder}</Story>
+</Canvas>
+
+### Input Field with Counter
+
+<Canvas>
+  <Story>{InputFieldStories.numberCounter}</Story>
+</Canvas>

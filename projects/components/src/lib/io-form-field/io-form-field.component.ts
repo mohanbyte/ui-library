@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @Component({
   selector: 'lib-io-form-field',
@@ -28,7 +29,12 @@ export class IoFormFieldComponent {
   @Input() showHint: boolean = true;
   @Input() showLabel: boolean = true;
   @Input() showCounter: boolean = false;
-  @Input() counterLimit: boolean = false;
+  @Input() counterLimit: number = 20;
   @Input() errorText: string = this.label + ' is a required';
   @Input() requiredField: boolean = false;
+  @Input() placeholder: string = 'Placeholder';
+  @Input() prefixText: string = '';
+  @Input() suffixText: string = '';
+  @Input() prefixType: 'none' | 'icon' | 'text';
+  @Input() suffixType: 'none' | 'icon' | 'text';
 }
