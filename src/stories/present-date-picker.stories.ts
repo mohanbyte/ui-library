@@ -3,7 +3,7 @@ import { PresetDateTimePickerComponent } from 'projects/components/src/public-ap
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta: Meta<PresetDateTimePickerComponent> = {
-  title: 'Date Pickers/PresentDateTimePicker',
+  title: 'Date Pickers/Present Date Picker',
   component: PresetDateTimePickerComponent,
   tags: ['autodocs'],
   render: (args: PresetDateTimePickerComponent) => ({

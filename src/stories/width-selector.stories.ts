@@ -4,7 +4,7 @@ import { WidthSelectorComponent } from '../../projects/components/src/lib/width-
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta: Meta<WidthSelectorComponent> = {
-  title: 'Form Field/WidthSelector',
+  title: 'Form Field/Mock Width Selector',
   excludeStories: ['WidthStories'],
   component: WidthSelectorComponent,
   tags: ['autodocs'],

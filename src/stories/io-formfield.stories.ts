@@ -3,7 +3,7 @@ import { IoFormFieldComponent } from 'projects/components/src/lib/io-form-field/
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta: Meta<IoFormFieldComponent> = {
-  title: 'COMPONENTS/Input Field',
+  title: 'Components/Input Field',
 
   component: IoFormFieldComponent,
   render: (args: IoFormFieldComponent) => ({
@@ -104,7 +104,7 @@ const meta: Meta<IoFormFieldComponent> = {
 export default meta;
 type Story = StoryObj<IoFormFieldComponent>;
 export const Default: Story = {
-  name: 'Default',
+  name: 'Text Input',
   args: {
     label: 'Label',
     type: 'text',
