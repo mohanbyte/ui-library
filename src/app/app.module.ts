@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WidthSelectorComponent } from 'faclon-ui';
 import { PresetDateTimePickerComponent } from 'projects/components/src/public-api';
 import { IoFormFieldComponent } from 'projects/components/src/lib/io-form-field/io-form-field.component';
+import { HighchartsComponent } from 'projects/components/src/lib/highcharts/highcharts.component';
 @NgModule({
   declarations: [
     // other components
@@ -27,6 +28,7 @@ import { IoFormFieldComponent } from 'projects/components/src/lib/io-form-field/
     WidthSelectorComponent,
     PresetDateTimePickerComponent,
     IoFormFieldComponent,
+    HighchartsComponent,
   ],
 
   bootstrap: [AppComponent],
