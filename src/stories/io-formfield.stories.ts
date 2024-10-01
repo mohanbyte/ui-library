@@ -2,10 +2,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import type { Meta, StoryObj } from '@storybook/angular';
 import { IoFormFieldComponent } from 'projects/components/src/lib/io-form-field/io-form-field.component';
 
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta: Meta<IoFormFieldComponent> = {
   title: 'Components/Input Field',
-
   component: IoFormFieldComponent,
 
   render: (args: IoFormFieldComponent) => ({
@@ -16,15 +14,8 @@ const meta: Meta<IoFormFieldComponent> = {
       imports: [BrowserAnimationsModule],
     },
   }),
-  tags: ['autodocs'], // Enables automatic docs generation with props
-  // parameters: {
-  //   // Controls the order or behavior of docs/props
-  //   docs: {
-  //     description: {
-  //       component: 'This is a button component used for actions.',
-  //     },
-  //   },
-  // },
+
+  tags: ['autodocs'],
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
     previewTabs: {
@@ -49,14 +40,18 @@ const meta: Meta<IoFormFieldComponent> = {
       control: 'boolean',
       defaultValue: false,
     },
-    hint: {
-      control: 'text', //Specifies the type of control
-    },
+
+    // Conditional hint
     showHint: {
       control: 'boolean',
       defaultValue: false,
     },
+    hint: {
+      control: 'text',
+      if: { arg: 'showHint', truthy: true }, // This ensures 'hint' is only available when showHint is true
+    },
 
+    // Counter-related props
     showCounter: {
       control: 'boolean',
       defaultValue: false,
@@ -64,41 +59,42 @@ const meta: Meta<IoFormFieldComponent> = {
     counterLimit: {
       control: 'number',
       defaultValue: 20,
+      if: { arg: 'showCounter', truthy: true },
     },
+
     requiredField: {
       control: 'boolean',
       defaultValue: false,
     },
+
+    // Suffix-related props
     suffixType: {
       control: 'select',
       options: ['text', 'icon', 'none'],
       defaultValue: 'none',
     },
-
     suffixText: {
       control: 'text',
-      defaultValue: '@gmail.com',
-      //if: { arg: 'suffixType', eq: 'text' },
+      if: { arg: 'suffixType', eq: 'text' }, // Only display when suffixType is 'text'
     },
     suffixIcon: {
       control: 'text',
-      defaultValue: 'edit',
-      //  if: { arg: 'suffixType', eq: 'icon' },
+      if: { arg: 'suffixType', eq: 'icon' }, // Only display when suffixType is 'icon'
     },
 
+    // Prefix-related props
     prefixType: {
       control: 'select',
       options: ['text', 'icon', 'none'],
+      defaultValue: 'none',
     },
     prefixText: {
       control: 'text',
-      defaultValue: '+91',
-      // if: { arg: 'prefixType', eq: 'text' },
+      if: { arg: 'prefixType', eq: 'text' }, // Only display when prefixType is 'text'
     },
     prefixIcon: {
       control: 'text',
-      defaultValue: '@gmail.com',
-      // if: { arg: 'prefixType', eq: 'icon' },
+      if: { arg: 'prefixType', eq: 'icon' }, // Only display when prefixType is 'icon'
     },
   },
 };
