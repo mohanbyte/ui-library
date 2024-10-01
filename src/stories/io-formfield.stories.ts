@@ -15,7 +15,7 @@ const meta: Meta<IoFormFieldComponent> = {
     },
   }),
 
-  tags: ['autodocs'],
+  //tags: ['autodocs'],
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
     previewTabs: {
