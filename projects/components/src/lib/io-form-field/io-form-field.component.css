@@ -1,0 +1,9 @@
+.mat-mdc-form-field-hint {
+  color: #626262;
+  font-family: "Noto Sans";
+  font-size: var(--Body-Small-Size, 12px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: var(--Body-Small-Line-Height, 16px); /* 133.333% */
+  letter-spacing: var(--Body-Small-Tracking, 0.4px);
+}
