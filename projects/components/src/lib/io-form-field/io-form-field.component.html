@@ -1,5 +1,5 @@
 <mat-form-field [appearance]="appearance">
-    <mat-label *ngIf="showLabel &&label">{{label}}</mat-label>
+    <mat-label *ngIf="showLabel ">{{label}}</mat-label>
     <input [type]="type" #input matInput [placeholder]="placeholder" [required]="requiredField"
         [attr.maxlength]="showCounter? null : 100" />
 
@@ -11,7 +11,7 @@
     <mat-icon matSuffix *ngIf="suffixType !== 'none' && suffixIcon && suffixType=='icon'"> {{suffixIcon}}</mat-icon>
     <!-- </div> -->
 
-    <mat-hint *ngIf="showLabel"> {{hint}} </mat-hint>
+    <mat-hint *ngIf="showHint"> {{hint}} </mat-hint>
     <mat-hint *ngIf="showCounter" align="end">{{input.value?.length || 0}}/{{counterLimit}}</mat-hint>
     <mat-error>{{errorText}}</mat-error>
 </mat-form-field>

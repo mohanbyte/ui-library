@@ -1,5 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  SimpleChanges,
+} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
@@ -18,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatInputModule,
     MatIconModule,
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class IoFormFieldComponent {
   @Input() appearance: 'outline' | 'fill' = 'outline';
@@ -37,4 +43,7 @@ export class IoFormFieldComponent {
   @Input() suffixText: string = '';
   @Input() prefixType: 'none' | 'icon' | 'text';
   @Input() suffixType: 'none' | 'icon' | 'text';
+  ngOnChanges(changes: SimpleChanges) {
+    console.log(changes);
+  }
 }

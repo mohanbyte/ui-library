@@ -1,3 +1,4 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import type { Meta, StoryObj } from '@storybook/angular';
 import { IoFormFieldComponent } from 'projects/components/src/lib/io-form-field/io-form-field.component';
 
@@ -6,12 +7,16 @@ const meta: Meta<IoFormFieldComponent> = {
   title: 'Components/Input Field',
 
   component: IoFormFieldComponent,
+
   render: (args: IoFormFieldComponent) => ({
     props: {
       ...args,
     },
+    moduleMetadata: {
+      imports: [BrowserAnimationsModule],
+    },
   }),
-  // tags: ['autodocs'], // Enables automatic docs generation with props
+  tags: ['autodocs'], // Enables automatic docs generation with props
   // parameters: {
   //   // Controls the order or behavior of docs/props
   //   docs: {
@@ -21,9 +26,6 @@ const meta: Meta<IoFormFieldComponent> = {
   //   },
   // },
   parameters: {
-    controls: {
-      exclude: ['ngOnInit', 'ngOnDestroy', 'ngAfterViewInit'],
-    },
     actions: { argTypesRegex: '^on[A-Z].*' },
     previewTabs: {
       'storybook/docs/panel': { index: -1 },
@@ -111,54 +113,74 @@ export const Default: Story = {
     requiredField: true,
   },
 };
+
 export const withLabel: Story = {
   name: 'Text Input with Help Text',
   args: {
-    ...Default.args,
+    label: 'Label',
+    type: 'text',
+    requiredField: true,
     hint: 'This is a supporting text',
     showHint: true,
   },
 };
+
 export const numberCounter: Story = {
   name: 'Text Input with Text/Number Counter',
   args: {
-    ...Default.args,
+    label: 'Label',
+    type: 'text',
+    requiredField: true,
     showCounter: true,
     counterLimit: 20,
   },
 };
+
 export const withPlaceholder: Story = {
   name: 'Text Input with Placeholder',
   args: {
-    ...Default.args,
+    label: 'Label',
+    type: 'text',
+    requiredField: true,
     placeholder: 'Placeholder',
   },
 };
+
 export const withoutLabel: Story = {
-  name: 'Text Input  Without Label',
+  name: 'Text Input Without Label',
   args: {
     hint: 'This is a supporting text',
     showHint: true,
   },
 };
+
 export const withPrefix: Story = {
   name: 'Text Input with Prefix Icon',
   args: {
-    ...Default.args,
+    label: 'Label',
+    type: 'text',
+    requiredField: true,
     prefixIcon: 'lock',
   },
 };
+
 export const withSuffix: Story = {
   name: 'Text Input with Suffix Icon',
   args: {
-    ...Default.args,
+    label: 'Label',
+    type: 'text',
+    requiredField: true,
     suffixIcon: 'clear',
   },
 };
+
 export const bothIcons: Story = {
   name: 'Text Input with Prefix & Suffix Icon',
   args: {
-    ...withPrefix.args,
-    ...withSuffix.args,
+    label: 'Label',
+    type: 'text',
+    requiredField: true,
+    prefixIcon: 'lock',
+    suffixIcon: 'clear',
   },
 };
