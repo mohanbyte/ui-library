@@ -32,13 +32,14 @@ const meta: Meta<IoFormFieldComponent> = {
     placeholder: {
       control: 'text',
     },
-    label: {
-      name: 'Label',
-      control: 'text',
-    },
     showLabel: {
       control: 'boolean',
       defaultValue: false,
+    },
+    label: {
+      name: 'Label',
+      control: 'text',
+      if: { arg: 'showLabel', truthy: true },
     },
 
     // Conditional hint
@@ -113,6 +114,7 @@ export const Default: Story = {
 export const withLabel: Story = {
   name: 'Text Input with Help Text',
   args: {
+    showLabel: true,
     label: 'Label',
     type: 'text',
     requiredField: true,
