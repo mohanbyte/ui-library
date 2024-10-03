@@ -7,3 +7,10 @@
   line-height: var(--Body-Small-Line-Height, 16px); /* 133.333% */
   letter-spacing: var(--Body-Small-Tracking, 0.4px);
 }
+.mat-icon {
+  color: #626262;
+}
+
+span {
+  color: #626262 !important;
+}

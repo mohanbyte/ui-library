@@ -79,7 +79,16 @@ const meta: Meta<IoFormFieldComponent> = {
       if: { arg: 'suffixType', eq: 'text' }, // Only display when suffixType is 'text'
     },
     suffixIcon: {
-      control: 'text',
+      control: 'select',
+      options: [
+        'account_circle',
+        'keyboard_capslock',
+        'lock',
+        'download_2',
+        'cloud_download',
+        'arrow_drop_down',
+        'visibility',
+      ],
       if: { arg: 'suffixType', eq: 'icon' }, // Only display when suffixType is 'icon'
     },
 
@@ -94,7 +103,16 @@ const meta: Meta<IoFormFieldComponent> = {
       if: { arg: 'prefixType', eq: 'text' }, // Only display when prefixType is 'text'
     },
     prefixIcon: {
-      control: 'text',
+      control: 'select',
+      options: [
+        'account_circle',
+        'keyboard_capslock',
+        'lock',
+        'download_2',
+        'cloud_download',
+        'arrow_drop_down',
+        'visibility',
+      ],
       if: { arg: 'prefixType', eq: 'icon' }, // Only display when prefixType is 'icon'
     },
   },
