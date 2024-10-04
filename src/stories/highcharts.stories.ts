@@ -3,7 +3,7 @@ import { HighchartsComponent } from 'projects/components/src/lib/highcharts/high
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta: Meta<HighchartsComponent> = {
-  title: 'Components/Highcharts',
+  title: 'Components/Charts',
 
   component: HighchartsComponent,
   render: (args: HighchartsComponent) => ({

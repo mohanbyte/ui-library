@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/angular';
 import { IoFormFieldComponent } from 'projects/components/src/lib/io-form-field/io-form-field.component';
 
 const meta: Meta<IoFormFieldComponent> = {
-  title: 'Components/Input Field',
+  title: 'Components/Input Field/Text Input',
   component: IoFormFieldComponent,
 
   render: (args: IoFormFieldComponent) => ({
@@ -123,7 +123,7 @@ const meta: Meta<IoFormFieldComponent> = {
 export default meta;
 type Story = StoryObj<IoFormFieldComponent>;
 export const Default: Story = {
-  name: 'Text Input',
+  name: 'Text Input - Default State',
   args: {
     showLabel: true,
     label: 'Label',
@@ -132,7 +132,7 @@ export const Default: Story = {
   },
 };
 export const disabled: Story = {
-  name: 'Disabled Text Input ',
+  name: 'Text Input - Disable State',
   args: {
     disabled: true,
     showLabel: true,
@@ -145,9 +145,17 @@ export const disabled: Story = {
     suffixIcon: 'visibility',
   },
 };
-
+// export const errorState: Story = {
+//   name: 'Text Input - Error State',
+//   args: {
+//     showLabel: true,
+//     label: 'Password',
+//     type: 'password',
+//     requiredField: true,
+//   },
+// };
 export const withLabel: Story = {
-  name: 'Text Input with Help Text',
+  name: 'Text Input With Supporting Text',
   args: {
     showLabel: true,
     label: 'Label',
@@ -159,7 +167,7 @@ export const withLabel: Story = {
 };
 
 export const numberCounter: Story = {
-  name: 'Text Input with Text/Number Counter',
+  name: 'Text Input With Text/Number Counter',
   args: {
     showLabel: true,
     label: 'Label',
@@ -171,7 +179,7 @@ export const numberCounter: Story = {
 };
 
 export const withPlaceholder: Story = {
-  name: 'Text Input with Placeholder',
+  name: 'Text Input With PlaceHolder',
   args: {
     showLabel: true,
     label: 'Label',
@@ -190,7 +198,7 @@ export const withoutLabel: Story = {
 };
 
 export const withPrefix: Story = {
-  name: 'Text Input with Prefix Icon',
+  name: 'Text Input With Prefix',
   args: {
     label: 'Label',
     type: 'text',
@@ -200,9 +208,20 @@ export const withPrefix: Story = {
     prefixIcon: 'lock',
   },
 };
+// export const withPrefixText: Story = {
+//   name: 'Text Input with Prefix Text',
+//   args: {
+//     label: 'Label',
+//     type: 'text',
+//     showLabel: true,
+//     prefixType: 'text',
+//     requiredField: true,
+//     prefixText: 'textdasdasdas',
+//   },
+// };
 
 export const withSuffix: Story = {
-  name: 'Text Input with Suffix Icon',
+  name: 'Text Input With Suffix',
   args: {
     label: 'Label',
     type: 'text',
@@ -214,7 +233,7 @@ export const withSuffix: Story = {
 };
 
 export const bothIcons: Story = {
-  name: 'Text Input with Prefix & Suffix Icon',
+  name: 'Text Input With Prefix & Suffix',
   args: {
     label: 'Label',
     type: 'text',
