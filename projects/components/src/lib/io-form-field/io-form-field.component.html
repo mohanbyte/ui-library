@@ -1,6 +1,6 @@
 <mat-form-field [appearance]="appearance">
     <mat-label *ngIf="showLabel ">{{label}}</mat-label>
-    <input [type]="type" #input matInput [placeholder]="placeholder" [required]="requiredField"
+    <input [type]="type" #input matInput [formControl]="userForm" [placeholder]="placeholder" [required]="requiredField"
         [attr.maxlength]="showCounter? null : 100" />
 
     <mat-icon matPrefix *ngIf="prefixType !== 'none'&& prefixIcon&& prefixType=='icon'"> {{prefixIcon}}</mat-icon>
@@ -13,5 +13,5 @@
 
     <mat-hint *ngIf="showHint"> {{hint}} </mat-hint>
     <mat-hint *ngIf="showCounter" align="end">{{input.value?.length || 0}}/{{counterLimit}}</mat-hint>
-    <mat-error>{{errorText}}</mat-error>
+    <mat-error *ngIf="errorText">{{errorText}}</mat-error>
 </mat-form-field>

@@ -14,3 +14,20 @@
 span {
   color: #626262 !important;
 }
+mat-error {
+  color: #ff2238;
+  font-family: "Noto Sans";
+  font-size: var(--Body-Small-Size, 12px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: var(--Body-Small-Line-Height, 16px); /* 133.333% */
+  letter-spacing: var(--Body-Small-Tracking, 0.4px);
+}
+input[type="password"] {
+  font-size: 24px; /* Increase the size of the dots */
+}
+
+/* Style for the placeholder */
+input[type="password"]::placeholder {
+  font-size: 16px; /* Set a smaller font-size for the placeholder */
+}

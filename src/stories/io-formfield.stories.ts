@@ -51,7 +51,9 @@ const meta: Meta<IoFormFieldComponent> = {
       control: 'text',
       if: { arg: 'showHint', truthy: true }, // This ensures 'hint' is only available when showHint is true
     },
-
+    errorText: {
+      control: 'text',
+    },
     // Counter-related props
     showCounter: {
       control: 'boolean',
@@ -198,5 +200,18 @@ export const bothIcons: Story = {
     requiredField: true,
     prefixIcon: 'lock',
     suffixIcon: 'clear',
+  },
+};
+export const password: Story = {
+  name: 'Password',
+  args: {
+    showLabel: true,
+    label: 'Password',
+    type: 'password',
+    requiredField: true,
+    prefixType: 'icon',
+    suffixType: 'icon',
+    prefixIcon: 'lock',
+    suffixIcon: 'visibility',
   },
 };
