@@ -34,7 +34,7 @@ const meta: Meta<IoFormFieldComponent> = {
     },
     showLabel: {
       control: 'boolean',
-      defaultValue: false,
+      defaultValue: true,
     },
     label: {
       name: 'Label',
@@ -125,6 +125,7 @@ type Story = StoryObj<IoFormFieldComponent>;
 export const Default: Story = {
   name: 'Text Input',
   args: {
+    showLabel: true,
     label: 'Label',
     type: 'text',
     requiredField: true,
@@ -160,6 +161,7 @@ export const withLabel: Story = {
 export const numberCounter: Story = {
   name: 'Text Input with Text/Number Counter',
   args: {
+    showLabel: true,
     label: 'Label',
     type: 'text',
     requiredField: true,
@@ -171,6 +173,7 @@ export const numberCounter: Story = {
 export const withPlaceholder: Story = {
   name: 'Text Input with Placeholder',
   args: {
+    showLabel: true,
     label: 'Label',
     type: 'text',
     requiredField: true,
@@ -191,6 +194,8 @@ export const withPrefix: Story = {
   args: {
     label: 'Label',
     type: 'text',
+    showLabel: true,
+    prefixType: 'icon',
     requiredField: true,
     prefixIcon: 'lock',
   },
@@ -201,6 +206,8 @@ export const withSuffix: Story = {
   args: {
     label: 'Label',
     type: 'text',
+    showLabel: true,
+    suffixType: 'icon',
     requiredField: true,
     suffixIcon: 'clear',
   },
@@ -212,7 +219,10 @@ export const bothIcons: Story = {
     label: 'Label',
     type: 'text',
     requiredField: true,
+    prefixType: 'icon',
+    suffixType: 'icon',
     prefixIcon: 'lock',
+    showLabel: true,
     suffixIcon: 'clear',
   },
 };
