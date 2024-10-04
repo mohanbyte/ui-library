@@ -130,6 +130,20 @@ export const Default: Story = {
     requiredField: true,
   },
 };
+export const disabled: Story = {
+  name: 'Disabled Text Input ',
+  args: {
+    disabled: true,
+    showLabel: true,
+    label: 'Password',
+    type: 'password',
+    requiredField: true,
+    prefixType: 'icon',
+    suffixType: 'icon',
+    prefixIcon: 'lock',
+    suffixIcon: 'visibility',
+  },
+};
 
 export const withLabel: Story = {
   name: 'Text Input with Help Text',
@@ -203,23 +217,8 @@ export const bothIcons: Story = {
   },
 };
 export const password: Story = {
-  name: 'Password',
+  name: 'Password Input',
   args: {
-    showLabel: true,
-    label: 'Password',
-    type: 'password',
-    requiredField: true,
-    prefixType: 'icon',
-    suffixType: 'icon',
-    prefixIcon: 'lock',
-    suffixIcon: 'visibility',
-  },
-};
-
-export const disabled: Story = {
-  name: 'Disabled',
-  args: {
-    disabled: true,
     showLabel: true,
     label: 'Password',
     type: 'password',
