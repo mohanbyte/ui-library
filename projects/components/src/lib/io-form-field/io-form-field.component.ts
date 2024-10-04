@@ -5,11 +5,15 @@ import {
   Input,
   SimpleChanges,
 } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {
+  FormControl,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @Component({
   selector: 'lib-io-form-field',
@@ -21,6 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
+    ReactiveFormsModule,
     MatIconModule,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -36,14 +41,27 @@ export class IoFormFieldComponent {
   @Input() showLabel: boolean = true;
   @Input() showCounter: boolean = false;
   @Input() counterLimit: number = 20;
-  @Input() errorText: string = this.label + ' is a required';
+  @Input() errorText: string = 'This field is a required';
   @Input() requiredField: boolean = false;
   @Input() placeholder: string = 'Placeholder';
   @Input() prefixText: string = '';
   @Input() suffixText: string = '';
   @Input() prefixType: 'none' | 'icon' | 'text';
   @Input() suffixType: 'none' | 'icon' | 'text';
+  @Input() disabled: boolean = false;
+  userForm = new FormControl('');
+  ngOnInit() {
+    if (this.requiredField) {
+      this.userForm.setValidators([Validators.required]);
+    }
+  }
   ngOnChanges(changes: SimpleChanges) {
     console.log(changes);
+    if (this.requiredField) {
+      this.userForm.setValidators(Validators.required);
+    }
+    if (this.disabled) {
+      this.userForm.disable();
+    }
   }
 }

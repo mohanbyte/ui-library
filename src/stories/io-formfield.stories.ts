@@ -215,3 +215,18 @@ export const password: Story = {
     suffixIcon: 'visibility',
   },
 };
+
+export const disabled: Story = {
+  name: 'Disabled',
+  args: {
+    disabled: true,
+    showLabel: true,
+    label: 'Password',
+    type: 'password',
+    requiredField: true,
+    prefixType: 'icon',
+    suffixType: 'icon',
+    prefixIcon: 'lock',
+    suffixIcon: 'visibility',
+  },
+};
